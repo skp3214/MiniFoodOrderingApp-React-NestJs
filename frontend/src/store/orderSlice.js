@@ -30,16 +30,14 @@ export const orderSlice = createSlice({
             else {
                 state.AllSelectedPassenger.push(action.payload)
             }
-            state.allPassengerTotalprice = state.AllSelectedPassenger.map(
-                (user) => user.price
-            ).reduce(
-                (acc, cur) => acc + cur, 0
-
-            )
+            state.allPassengerTotalprice = state.AllSelectedPassenger.map((user) => user.price)
+                .reduce((acc, cur) => acc + cur, 0)
         },
         removePassenger: (state, action) => {
             state.AllSelectedPassenger = state.AllSelectedPassenger.filter((passenger) => passenger.id
                 !== action.payload.id);
+            state.allPassengerTotalprice = state.AllSelectedPassenger.map((user) => user.price)
+                .reduce((acc, cur) => acc + cur, 0)
         },
         setCurrentSelectedPassengerId: (state, action) => {
             state.currentSelectedPassengerId = action.payload;
