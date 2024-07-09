@@ -13,7 +13,7 @@ const App = () => {
   };
 
   const fetchLabels = async () => {
-    const response = await fetch('http://localhost:3000/labels' || `${config.apiUrl}/labels`);
+    const response = await fetch('http://localhost:3000/labels' || `${config.apiUrl}labels`);
     const labels = await response.json();
     console.log(labels);
     setLabels(labels);
