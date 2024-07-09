@@ -5,7 +5,7 @@ const TotalPrice = () => {
   const totalPrice = useSelector((state) => state.orders.allPassengerTotalprice);
 
   return (
-    <div className="flex   bg-gray-100">
+    <div className="flex py-4 ">
       <div className="p-6 bg-white rounded-lg shadow-lg text-center">
         <h2 className="text-xl font-semibold text-gray-800">
           Total Price For All Passengers:
