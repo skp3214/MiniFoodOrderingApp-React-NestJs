@@ -1,19 +1,19 @@
 import React, { useEffect, useState } from 'react';
 import { passengers, LabelList, MealList, PassengerList, TotalPrice } from './components';
-
+import config from "./config/config.js";
 const App = () => {
   const [meals, setMeals] = useState(null);
   const [labels, setLabels] = useState(null);
 
   const fetchMeals = async () => {
-    const response = await fetch('http://localhost:3000/');
+    const response = await fetch(`${config.apiUrl}`||`http://localhost:3000`);
     const meals = await response.json();
     console.log(meals);
     setMeals(meals);
   };
 
   const fetchLabels = async () => {
-    const response = await fetch('http://localhost:3000/labels');
+    const response = await fetch('http://localhost:3000/labels' || `${config.apiUrl}/labels`);
     const labels = await response.json();
     console.log(labels);
     setLabels(labels);
